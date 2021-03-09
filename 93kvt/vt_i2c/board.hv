@@ -1,0 +1,6 @@
+`ifdef _board_hv
+`else
+`define _board_hv
+`define I2C_SCL_BOARD_DELAY 0
+`define I2C_SDA_BOARD_DELAY 0
+`endif

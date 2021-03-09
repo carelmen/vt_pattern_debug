@@ -1,0 +1,50 @@
+/*
+ * File:	stddef.hv
+ * Author:	dima@testinsight.com
+ * Created:	Thu Aug  7 2003
+ * Copyright:	(c) 2003, Test Insight Ltd.
+ *
+ * Abstract:	Virtual tester standard definitions
+ *
+ * $Id: vtw_stddef.hv,v 1.8 2017/11/19 12:11:54 sasha Exp $
+ */
+
+
+`ifdef _stddef_hv
+`else
+ // Don't include twice
+ `define _stddef_hv
+
+  // Standard values
+ `define VTW_TRUE      1'b1
+ `define VTW_FALSE     1'b0
+ `define VTW_ERROR     1'bx
+ `define VTW_INPUT     1'b0
+ `define VTW_OUTPUT    1'b1
+
+ // Byte size
+ `define VTW_BYTE_SIZE 8
+
+ // Text size
+ `define VTW_TEXT_SIZE 2048
+
+ // Text size
+ `define VTW_ERRMSG_SIZE 1024
+
+ // Path size
+ `ifdef VTW_PATH_SIZE
+ `else
+  `define VTW_PATH_SIZE 6144
+ `endif
+
+ // Integer size
+ `define VTW_INTEGER_SIZE 32
+
+ // ID size
+ `define VTW_ID_SIZE 400
+
+ // Comment size
+ `define VTW_COMMENT_SIZE 2048
+
+`endif
+

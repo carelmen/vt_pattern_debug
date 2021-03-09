@@ -1,0 +1,5 @@
+verilog \
+  +incdir+/home/carelmen/external/top/projects/testinsight/git/93kvt/vt_i2c\
+  -y /home/carelmen/external/top/projects/testinsight/git/93kvt/vt_i2c\
+  +libext+.v \
+  test_wrapper.v

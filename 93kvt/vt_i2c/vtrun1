@@ -1,0 +1,19 @@
+verilog \
+  test.hv \
+  board.hv \
+  vtw_wfgdef.hv \
+  vtw_stddef.hv \
+  vtw_logger.hv \
+  vtw_alldef.hv \
+  vtw_stdutil.hv \
+  clockgen.v \
+  vtw_logger.v \
+  vtw_wfg.v \
+  vtw_stdutil.v \
+  Pattern0_timing.v \
+  Pattern0.v \
+  Pattern0_timing_control.v \
+  Pattern0_submodule_0.v \
+  test_wrapper.v \
+  tester.v \
+  monitor.v

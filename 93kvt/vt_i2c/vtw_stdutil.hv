@@ -1,0 +1,23 @@
+/*
+ * File:	vtw_stdutil.hv
+ * Author:	dima@rh9.testinsight.com
+ * Created:	Wed Dec 26 2007
+ * Copyright:	(c) 2007, Test Insight Ltd.
+ *
+ * Abstract:	
+ *
+ * $Id: vtw_stdutil.hv,v 1.1 2015/12/24 13:22:41 dima Exp $
+ */
+
+`ifdef _stdutil_hv
+`else
+
+`define _stdutil_hv
+
+`define VTW_STD_UTIL         `VTW_TOPLEVEL.vtw_stdutil
+`define VTW_TEST_MEMORY_DIR  `VTW_TOPLEVEL.vtw_stdutil.vtw_test_memory_dir
+
+`endif // !`ifdef _stdutil_hv
+
+
+

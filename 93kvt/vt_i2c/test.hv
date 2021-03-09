@@ -1,0 +1,15 @@
+`ifdef _test_hv
+`else
+`define _test_hv
+`timescale 1ps/1ps
+`define VTW_TOPLEVEL test_wrapper
+`define VTW_TESTER `VTW_TOPLEVEL.tester
+`define VTW_TIMEUNIT_FACTOR 1000
+`define VTW_CONTROL_PULSE 10000
+`define VTW_PRECISION2UNIT_FACTOR 1
+`define VTW_TEST_MEMORY_DEFAULT_DIR "/home/carelmen/external/top/projects/testinsight/git/93kvt/vt_i2c"
+`endif
+`ifdef VTW_LOG_EVERY_VECTOR
+`else
+`define VTW_LOG_EVERY_VECTOR 1
+`endif

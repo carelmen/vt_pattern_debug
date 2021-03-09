@@ -1,0 +1,90 @@
+*** vt_i2c/test_wrapper.v	Tue Mar  2 21:47:10 2021
+--- test_wrapper.v	Tue Mar  2 21:47:02 2021
+***************
+*** 38,44 ****
+    vtw_logger vtw_logger(
+                         );
+    vtw_stdutil vtw_stdutil(
+!                          );
+    `ifdef VTW_OE_CONTENTION_MONITOR
+    `ifdef VTW_OWN_MONITOR_CONNECTION
+    `else
+--- 38,46 ----
+    vtw_logger vtw_logger(
+                         );
+    vtw_stdutil vtw_stdutil(
+!                         );
+! 
+! /*
+    `ifdef VTW_OE_CONTENTION_MONITOR
+    `ifdef VTW_OWN_MONITOR_CONNECTION
+    `else
+***************
+*** 76,95 ****
+  `ifdef VTW_USER_CODE
+  `VTW_USER_CODE
+  `endif
+! 
+    tester tester(
+                  .I2C_SCL(I2C_SCL),
+                  .I2C_SDA(I2C_SDA)
+                 );
+    initial
+      begin
+  `ifdef VTW_OWN_DUMP
+  `else
+  `ifdef VTW_FSDB_DUMP
+        $fsdbDumpfile("dut.fsdb");
+        $fsdbDumpvarsToFile("dut_fsdb.list");
+  `else
+        $dumpfile("dut.vcd");
+        $dumpvars(1,`VTW_LOGGING.fail_number);
+        $dumpvars(1,`VTW_LOGGING.compare_number);
+        $dumpvars(1,SPI_MOSI);
+--- 78,103 ----
+  `ifdef VTW_USER_CODE
+  `VTW_USER_CODE
+  `endif
+! */
+    tester tester(
+                  .I2C_SCL(I2C_SCL),
+                  .I2C_SDA(I2C_SDA)
+                 );
++    
+    initial
+      begin
+  `ifdef VTW_OWN_DUMP
++        $monitor("web_ %3d I2C_SCL=%b I2C_SDA=%b", $time, I2C_SCL, I2C_SDA);
++        
+  `else
++        
+  `ifdef VTW_FSDB_DUMP
++ 
+        $fsdbDumpfile("dut.fsdb");
+        $fsdbDumpvarsToFile("dut_fsdb.list");
+  `else
+        $dumpfile("dut.vcd");
++        
+        $dumpvars(1,`VTW_LOGGING.fail_number);
+        $dumpvars(1,`VTW_LOGGING.compare_number);
+        $dumpvars(1,SPI_MOSI);
+***************
+*** 105,110 ****
+--- 113,119 ----
+        $dumpvars(1,JTAG_TRSTN);
+        $dumpvars(1,SWDIO);
+        $dumpvars(1,SWCLK);
++ 
+  `ifdef VTW_SKIP_PATTERN_PARAMETERS
+  `else
+        $dumpvars(1,tester.Pattern0.cycle_number);
+***************
+*** 115,120 ****
+--- 124,130 ----
+        $dumpvars(1,tester.Pattern0.vector_subr);
+        $dumpvars(1,tester.Pattern0.pat_name);
+  `endif
++ 
+        $dumpvars(1,tester.I2C_SCL_driver);
+        $dumpvars(1,tester.I2C_SCL_driver_data);
+        $dumpvars(1,tester.I2C_SCL_expected);

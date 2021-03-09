@@ -1,0 +1,38 @@
+/*
+ * File:	vtw_logger.hv
+ * Author:	dima@rh9.testinsight.com
+ * Created:	Wed Dec 26 2007
+ * Copyright:	(c) 2007, Test Insight Ltd.
+ *
+ * Abstract:	
+ *
+ * $Id: vtw_logger.hv,v 1.4 2019/01/31 12:49:27 dima Exp $
+ */
+
+`ifdef _logger_hv
+`else
+
+`define _logger_hv
+
+`define VTW_LOGFILE  "vtw.log"
+`define VTW_LOGFAIL  "vtw.fail"
+`define VTW_LOGWARN  "vtw.warn"
+`define VTW_LOGWAVER "vtw_waver.fail"
+
+`define VTW_LOGGING `VTW_TOPLEVEL.vtw_logger
+
+`ifdef VTW_DATE_FILE
+`else
+` define VTW_DATE_FILE "/tmp/.localtime"
+`endif
+
+`ifdef VTW_DATE_CMD
+`else
+` define VTW_DATE_CMD "date"
+`endif
+
+
+`endif // !`ifdef _logger_hv
+
+
+

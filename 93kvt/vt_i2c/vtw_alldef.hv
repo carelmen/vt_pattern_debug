@@ -1,0 +1,55 @@
+/*
+ * File:	vtw_logger.hv
+ * Author:	dima@rh9.testinsight.com
+ * Created:	Wed Dec 26 2007
+ * Copyright:	(c) 2007, Test Insight Ltd.
+ *
+ * Abstract:	
+ *
+ * $Id: vtw_alldef.hv,v 1.2 2015/12/24 13:26:14 dima Exp $
+ */
+
+`ifdef _alldef_hv
+`else
+
+`define _alldef_hv
+
+// Include all require definition files
+
+`ifdef _test_hv
+`else
+ `include "test.hv"
+`endif
+
+`ifdef _logger_hv
+`else
+ `include "vtw_logger.hv"
+`endif
+
+`ifdef _stddef_hv
+`else
+ `include "vtw_stddef.hv"
+`endif
+
+`ifdef _wfgdef_hv
+`else
+ `include "vtw_wfgdef.hv"
+`endif
+
+`ifdef _board_hv
+`else
+ `include "board.hv"
+`endif
+
+`ifdef _stdutil_hv
+`else
+ `include "vtw_stdutil.hv"
+`endif
+
+`endif // !`ifdef _alldef_hv
+
+  
+  
+
+
+

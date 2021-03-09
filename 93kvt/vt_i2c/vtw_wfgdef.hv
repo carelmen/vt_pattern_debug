@@ -1,0 +1,62 @@
+/*
+ * File:	wfgdefs.hv
+ * Author:	dima@testinsight.com
+ * Created:	Tue Dec 23 2003
+ * Copyright:	(c) 2003, Test Insight Ltd.
+ *
+ * Abstract:	Waveform generator definitions
+ *
+ * $Id: vtw_wfgdef.hv,v 1.6 2019/05/07 09:34:51 dima Exp $
+ */
+
+
+
+`ifdef _wfgdef_hv
+`else
+ // Don't include twice
+ `define _wfgdef_hv
+
+ // Size of timing delay
+ `define VTW_DELAY_SIZE                   32
+
+// Size of default edge strobe window - 2ns
+`define VTW_EDGE_STROBE_WINDOW            2
+
+ // Edge parameters
+ `define VTW_EDGE_NUMBER_SIZE             5
+ `define VTW_EDGE_ACTION_STATE_SIZE       4
+ `define VTW_EDGE_COMPARE_STATE_SIZE      4
+ `define VTW_EDGE_DRIVE_STATE_SIZE        4
+ `define VTW_CHANNEL_EDGE_DATA_SIZE       12
+
+
+`ifdef VTW_CHANNEL_MAX_EDGES
+`else
+ `define VTW_CHANNEL_MAX_EDGES            32
+`endif
+					  
+  // Edge info memory					  
+ `define VTW_EDGE_ACTION_STATE_SELECT     0:`VTW_EDGE_ACTION_STATE_SIZE-1
+ `define VTW_EDGE_COMPARE_STATE_SELECT    `VTW_EDGE_ACTION_STATE_SIZE:`VTW_EDGE_ACTION_STATE_SIZE+\
+                                          `VTW_EDGE_COMPARE_STATE_SIZE-1
+ `define VTW_EDGE_DRIVE_STATE_SELECT      `VTW_EDGE_ACTION_STATE_SIZE+`VTW_EDGE_COMPARE_STATE_SIZE:\
+					   `VTW_CHANNEL_EDGE_DATA_SIZE-1
+      
+ // Edge actions
+ `define VTW_EDGE_DRIVE_NOP               `VTW_EDGE_DRIVE_STATE_SIZE'b0
+ `define VTW_EDGE_DRIVE_ON                `VTW_EDGE_DRIVE_STATE_SIZE'b1
+ `define VTW_EDGE_DRIVE_OFF               `VTW_EDGE_DRIVE_STATE_SIZE'b10					  
+      
+ `define VTW_EDGE_COMPARE_NOP             `VTW_EDGE_COMPARE_STATE_SIZE'b0
+ `define VTW_EDGE_COMPARE_ON              `VTW_EDGE_COMPARE_STATE_SIZE'b1
+ `define VTW_EDGE_COMPARE_OFF             `VTW_EDGE_COMPARE_STATE_SIZE'b10
+      
+ `define VTW_EDGE_ACTION_DRIVE_HIGH       `VTW_EDGE_ACTION_STATE_SIZE'b1
+ `define VTW_EDGE_ACTION_DRIVE_LOW        `VTW_EDGE_ACTION_STATE_SIZE'b10
+ `define VTW_EDGE_ACTION_COMPARE_HIGH     `VTW_EDGE_ACTION_STATE_SIZE'b11
+ `define VTW_EDGE_ACTION_COMPARE_LOW      `VTW_EDGE_ACTION_STATE_SIZE'b100
+ `define VTW_EDGE_ACTION_COMPARE_MID      `VTW_EDGE_ACTION_STATE_SIZE'b101
+ `define VTW_EDGE_ACTION_COMPARE_VALID    `VTW_EDGE_ACTION_STATE_SIZE'b110					     
+ `define VTW_EDGE_ACTION_NOP              `VTW_EDGE_ACTION_STATE_SIZE'b0
+
+`endif
