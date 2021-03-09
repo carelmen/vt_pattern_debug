@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<blocks>
+
+  <LabelData>
+    <Label name="i2c_demo">
+      <Type>MAIN</Type>
+      <Wvt>wvt_i2c_only</Wvt>
+      <Port>port_I2C</Port>
+      <Files>
+        <File>../testprogram/vectors/i2c_demo.binl.gz</File>
+      </Files>
+      <CTIMs/>
+      <CLEVs/>
+      <SubLabels/>
+      <Variables/>
+    </Label>
+    <Label name="mpb_i2c_demo">
+      <Type>MPBU</Type>
+      <Port>port_I2C</Port>
+      <Files>
+        <File>../testprogram/vectors/mpb_i2c_demo.binl.gz</File>
+      </Files>
+      <CTIMs/>
+      <CLEVs/>
+      <SubLabels>
+        <SubLabelPort name="port_I2C">
+          <Label>i2c_demo</Label>
+        </SubLabelPort>
+      </SubLabels>
+      <Variables/>
+    </Label>
+  </LabelData>
+
+  <FilesData>
+    <File name="../testprogram/vectors/mpb_i2c_demo.binl.gz">
+      <DefinedLabels>
+        <Label>mpb_i2c_demo</Label>
+      </DefinedLabels>
+      <CalledLabels>
+        <Label>i2c_demo</Label>
+      </CalledLabels>
+      <Variables/>
+      <MemCommands>
+        <Command>DMAS SQPG,SM,2,(port_I2C)</Command>
+      </MemCommands>
+    </File>
+    <File name="../testprogram/vectors/i2c_demo.binl.gz">
+      <DefinedLabels>
+        <Label>i2c_demo</Label>
+      </DefinedLabels>
+      <CalledLabels/>
+      <Variables/>
+      <MemCommands>
+        <Command>DMAS PARA,SM,3576,(port_I2C)</Command>
+        <Command>DMAS SQPG,SM,12,(port_I2C)</Command>
+      </MemCommands>
+    </File>
+  </FilesData>
+
+</blocks>

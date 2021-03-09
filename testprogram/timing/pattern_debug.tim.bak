@@ -1,0 +1,120 @@
+hp93000,timing,0.1
+SPST TIM,,"i2c",0
+SPST TIM,,"wrong",0
+PCLK 1,1,10,(@)
+CLKR 1,10,10
+BWDS 1,,,"",(SPI_MOSI,SPI_MISO,SPI_CS,SPI_CLK,I2C_SCL,I2C_SDA,JTAG_TCK,JTAG_TMS,JTAG_TDI,JTAG_TDO,JTAG_TRSTN,SWDIO,SWCLK)
+ETDS 1,1,,"",(SPI_MOSI,SPI_MISO,SPI_CS,SPI_CLK,I2C_SCL,I2C_SDA,JTAG_TCK,JTAG_TMS,JTAG_TDI,JTAG_TDO,JTAG_TRSTN,SWDIO,SWCLK)
+DCDT 1,""
+TSUX 1,1
+EQSP TIM,WVT,#9000000684WAVETBL wvt1  
+
+PINS SPI_MOSI SPI_MISO SPI_CS SPI_CLK I2C_SDA I2C_SCL
+0 "d1:0" 0
+1 "d1:1" 1
+2 "d1:Z" X
+3 "d1:Z r1:L" L
+4 "d1:Z r1:H" H
+
+
+PINS JTAG_TCK JTAG_TMS JTAG_TDI JTAG_TDO JTAG_TRSTN 
+0 "d1:0" 0
+1 "d1:1" 1
+2 "d1:Z" X
+3 "d1:Z r1:L" L
+4 "d1:Z r1:H" H
+
+
+PINS SWDIO SWCLK
+0 "d1:0" 0
+1 "d1:1" 1
+2 "d1:Z" X
+3 "d1:Z r1:L" L
+4 "d1:Z r1:H" H
+
+
+
+WAVETBL "wvt_i2c_incorrect"
+DEFINES port_I2C
+
+PINS I2C_SCL I2C_SDA 
+0 "d1:0" 0
+1 "d1:1" 1
+2 "d1:Z" X
+3 "d1:Z r1:L" L
+4 "d1:Z r1:H" H
+
+
+WAVETBL "wvt_i2c_only"
+DEFINES port_I2C
+
+PINS I2C_SCL
+0 "d1:0" 0
+1 "d1:1" 1
+2 "d1:Z" X
+
+PINS I2C_SDA
+0 "d1:0" 0
+1   "d1:1" 1
+2 "d1:Z r1:L" L
+3 "d1:Z r1:H" H
+4 "d1:Z" X
+5 "d1:Z" A
+6 "d1:0" N
+7 "d1:Z r1:C" C
+@
+EQSP TIM,EQN,#9000000196
+EQNSET 1 "Common Timing"
+
+SPECS
+Tcyc [ns]
+
+TIMINGSET 1 
+period=Tcyc
+
+PINS SPI_MOSI SPI_MISO SPI_CS SPI_CLK I2C_SCL I2C_SDA JTAG_TCK JTAG_TMS JTAG_TDI JTAG_TDO JTAG_TRSTN SWDIO SWCLK
+d1=0
+r1=0.6
+@
+EQSP TIM,SPS,#9000000710
+
+
+
+SPECIFICATION "i2c"
+{
+
+CHECK all
+
+# SPECNAME       *****ACTUAL***** *****MINIMUM**** *****MAXIMUM**** UNITS COMMENT
+
+EQNSET 1 "Common Timing"
+WAVETBL "wvt_i2c_only"
+PORT port_I2C
+SYNC
+{
+}
+
+# SPECNAME       *****ACTUAL***** *****MINIMUM**** *****MAXIMUM**** UNITS COMMENT
+Tcyc             100                                                [ ns] 
+}
+
+
+SPECIFICATION "wrong"
+{
+
+CHECK all
+
+# SPECNAME       *****ACTUAL***** *****MINIMUM**** *****MAXIMUM**** UNITS COMMENT
+
+EQNSET 1 "Common Timing"
+WAVETBL "wvt_i2c_incorrect"
+PORT port_I2C
+SYNC
+{
+}
+
+# SPECNAME       *****ACTUAL***** *****MINIMUM**** *****MAXIMUM**** UNITS COMMENT
+Tcyc             100                                                [ ns] 
+}
+@
+NOOP "7.4.3",,,

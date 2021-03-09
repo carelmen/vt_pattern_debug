@@ -1,0 +1,19 @@
+    format definition file
+$show_free_res_col=n
+$show_wf_numbers=n
+$show_prev_next_dc=n
+$show_same_dc_for_all_pins=y
+$global_DC_names=,,
+I2C_SCL,p,,,
+I2C_SDA,p,,,
+JTAG_TCK,p,,,
+JTAG_TDI,p,,,
+JTAG_TDO,p,,,
+JTAG_TMS,p,,,
+JTAG_TRSTN,p,,,
+SPI_CLK,p,,,
+SPI_CS,p,,,
+SPI_MISO,p,,,
+SPI_MOSI,p,,,
+SWCLK,p,,,
+SWDIO,p,,,

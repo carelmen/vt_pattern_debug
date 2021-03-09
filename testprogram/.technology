@@ -1,0 +1,14 @@
+/dev_tech/cmos
+device_cycles: 256
+waveform_sets: 32
+timing_sets: 256
+level_sets: 32
+dps_sets: 32
+pdc_sets: 16
+m_sets: 1024
+routing_sets: 256
+period_res_precision: 9
+testpoints: 10000
+utility_lines_per_pogoblock: 16
+tester_model: act
+licensing_file: 

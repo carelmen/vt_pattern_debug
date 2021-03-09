@@ -1,0 +1,13 @@
+    timestat file
+$first_pin_shown=I2C_SCL
+$snap_mode=y
+$snap_value=500
+$edit_compatible=n
+$shapes_doubling=y
+$viewing_mode=1
+$viewing_wfset="i2c" 1
+$viewing_tset=1
+$screen_size=0
+$show_mode=1
+$cycle_info=2 0 1
+$port_shown=port_I2C
