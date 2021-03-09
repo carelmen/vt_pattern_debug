@@ -21,7 +21,4 @@ The full testbench is checked in so you can compile it with your simulator
 3. Enable I2C Protocol Decoder
 4. (Optional) Check the text output: see sigrok/decode_i2c.sh
 
-* 
-
-
 
